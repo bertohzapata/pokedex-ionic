@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="/"
+        text="Volver"
+        color="primary"
+        mode="android"
+      ></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle># {{pokemon.id}}</ion-card-subtitle>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-avatar>
+              <img [src]="sprites.front_default">
+            </ion-avatar>
+          </ion-col>
+          <ion-col><ion-avatar>
+            <img [src]="sprites.front_shiny">
+          </ion-avatar></ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-card-title>{{pokemon.name |titlecase}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-chip>
+              <ion-icon name="accessibility" color="dark"></ion-icon>
+              <ion-label>{{pokemon.height}}</ion-label>
+            </ion-chip>
+          </ion-col>
+          <ion-col>
+            <ion-chip>
+              <ion-icon name="basket" color="dark"></ion-icon>
+              <ion-label>{{pokemon.weight}}</ion-label>
+            </ion-chip>
+          </ion-col>
+          <ion-col>
+            <ion-chip>
+              <ion-icon name="trending-up" color="dark"></ion-icon>
+              <ion-label>{{pokemon.base_experience}}</ion-label>
+            </ion-chip>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-list>
+      <ion-list-header>Habilidades</ion-list-header>
+
+      <ion-item *ngFor="let ability of abilities" class="ion-activated">
+        <ion-icon name="star" slot="start" color="dark"></ion-icon>
+        <ion-label>{{ability.ability.name}}</ion-label>
+      </ion-item>
+      
+    </ion-list>
+  </ion-card>
+
+
+</ion-content>
